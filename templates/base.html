@@ -1,0 +1,74 @@
+{% load native flatblock_tags %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>EffervescentCollective | {% block title %}Welcome{% endblock %}</title>
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+  <meta name="description" content="Site Description Here" />
+  <meta name="keywords" content="keywords, here" />
+  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/layout.css"/>
+  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/html.css"/>
+</head>
+
+<body>
+
+<div id="content">
+
+  <div id="header" class="width">
+    <a href="/"><img border="0" src="{{ MEDIA_URL }}images/logo.jpg" alt="Effervescent Collective"/></a>
+  {% flatblock "top-menu" %}
+  </div>
+  <div id="headerImg" class="width"></div>
+  <div id="menu" class="width">
+    {% flatblock "sub-menu" %}
+  </div>
+
+  <div id="page">
+    <div id="columns" class="widthPad">
+    <div class="floatLeft width73">
+      <h1><span class="dark">{% block content_title %}home{% endblock %}</span></h1>
+
+      {% block content %}
+      <p style="font-size: 14px;">The Effervescent Collective strives to create and cultivate dances that are curious, clever, and impactful. They look for powerful, alternate ways to understand everyday rituals and popular culture.</p>  
+      <h2>Articles</h2>
+    {% for post in object_list %}
+      <div class="post">
+        <div class="date">
+          <span class="month">{{ post.publish|date:"M" }}</span>
+          <span class="day">{{ post.publish|date:"d" }}</span>
+        </div>
+        <p>
+          <span class="title"><a href="{{ post.get_absolute_url }}" title="View this post">{{ post.title }}</a></span>
+	      {{ post.tease|safe }}
+	    </p>
+      </div>    
+    {% endfor %}
+    <h2><a href="/blog/">Read more articles...</a></h2>
+    {% endblock %}
+
+    </div>
+
+    <div class="floatRight width25 lightBlueBg horzPad">
+  {% get_section_slug as section_slug %}
+  {% if section_slug %}
+    {% flatblock section_slug %}
+  {% endif %}
+
+
+
+
+    <p><a href="https://www.fracturedatlas.org/donate/3033" target="_top"><img src="http://www.fracturedatlas.org/site/images/contribute/donate_button2.gif" border="0" alt="Donate now!" width="120" height="40" /></a></p>
+    </div>
+
+    </div>
+  </div>
+</div>
+<div id="footer">
+  <div id="bg" class="width">
+    <img src="{{ MEDIA_URL }}images/logo.jpg" alt="Effervescent Collective"/>
+  </div>
+      <img style="border-width: 0pt;" src="http://i.creativecommons.org/l/by-nc-sa/3.0/us/88x31.png" alt="Creative Commons License"></a><br>
+Effervesent Collective by Lily Susskind is licensed under a<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License</a>.
+
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content_title %}Member Bios{% endblock %}
+{% block title %}Member Bios{% endblock %}
+
+{% block content %}
+<ul>
+{% for member in staff %}
+	<li><a href="{{ member.slug }}/">{{ member }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

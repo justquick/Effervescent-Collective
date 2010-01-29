@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content_title %}Contact Us{% endblock %}
+{% block title %}Contact Us{% endblock %}
+{% block content %}
+<form method="post" action=".">
+{{ form.as_p }}
+<input type="submit" value="Send"/>
+</form>
+{% endblock %}

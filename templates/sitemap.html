@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content_title %}Sitemap{% endblock %}
+{% block title %}Sitemap{% endblock %}
+{% block content %}
+{% for name,urls in maps.items %}
+<h2>{{ name }}</h2>
+    <ul>
+    {% for url in urls %}
+        <li><a href="{{ url }}">{{ url }}</a></li>
+    {% endfor %}
+    </ul>
+{% endfor %}
+{% endblock %}
