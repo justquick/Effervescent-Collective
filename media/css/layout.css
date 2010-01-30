@@ -270,9 +270,9 @@
 
 #footer #bg {
   position: relative;
-  height: 5em;
   margin: 0 auto;
-  background: #49525B url(../images/bg/header.gif) repeat-x bottom left;
+  color: #cccccc;
+  background: #000000 url(../images/bg/header.gif) repeat-x bottom left;
 }
 
 #footer #bg ul {
@@ -310,7 +310,6 @@
 }
 
 #footer #bg img {
-  position: absolute;
   top: 6%;
   left: 10px;
 }
