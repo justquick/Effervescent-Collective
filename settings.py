@@ -44,12 +44,12 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = 'http://127.0.0.1:8000/media/'
+MEDIA_URL = '/media/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = 'http://127.0.0.1:8000/media/admin/'
+ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'r0&mb4p30-f&jj@$zjoy2)@bo%oiq&ax-rr0ja=cic5qvp-ekv'
@@ -103,6 +103,8 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'django.contrib.redirects',
     'django.contrib.sitemaps',
+    'django.contrib.comments',
+    'django.contrib.markup',
     'django_ext',
     'django_memcached',
     'pagination',
@@ -118,6 +120,10 @@ INSTALLED_APPS = (
     'flatblocks',
     'native_tags',
     'staff',
+    'template_utils',
+    'mptt',
+    'mptt_comments',
+    'frontendadmin',
     
     'tinymce',
     'tagging',
@@ -140,10 +146,8 @@ TINYMCE_DEFAULT_CONFIG = {
     'theme_advanced_buttons2' : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
     'theme_advanced_buttons3' : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
     'theme_advanced_buttons4' : "insertlayer,moveforward,movebackward,absolute,|,styleprops,spellchecker,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,blockquote,pagebreak,|,insertfile,insertimage",
-
-    #'skin': 'thebigreason',
-	'theme_advanced_statusbar_location' : "bottom",
-	'width': "97%",
+    'theme_advanced_statusbar_location' : "bottom",
+    'width': "97%",
 }
 
 def get_section_slug(context):
@@ -160,6 +164,11 @@ NATIVE_LIBRARY = {
     'function':{
         'get_section_slug' : get_section_slug,
     }
+}
+
+FRONTEND_FORMS = {
+    'blog.post': 'django_ext.forms.PostForm',
+    'flatpages.flatpage': 'django_ext.forms.FlatPageForm',
 }
 
 #EMAIL_HOST = 'smtp.gmail.com'

@@ -1,6 +1,6 @@
 {% extends "blog/base_blog.html" %}
 
-{% load i18n %}
+{% load i18n frontendadmin_tags %}
 
 {% block title %}{% trans "Post archive" %}{% endblock %}
 {% block body_class %}{{ block.super }} post_list{% endblock %}
@@ -11,6 +11,7 @@
 
 {% block content %}
   <div class="list post_list">
+    <h3>{% frontendadmin_add object_list 'Write new article' %}</h3>
     {% for post in object_list %}
       <div class="post">
         <div class="date">

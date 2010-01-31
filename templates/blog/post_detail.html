@@ -1,11 +1,11 @@
 {% extends "blog/base_blog.html" %}
 
-{% load i18n %}
+{% load i18n mptt_comments_tags frontendadmin_tags %}
 
 {% block title %}{{ object.title }}{% endblock %}
 {% block body_class %}{{ block.super }} post_detail{% endblock %}
 {% block body_id %}post_{{ object.id }}{% endblock %}
-
+{% block extrahead %}{% mptt_comments_media %}{% endblock %}
 
 {% block content_title %}{{ object.title }}{% endblock %}
 
@@ -15,9 +15,13 @@
 
   <p class="date">{{ object.publish|date:"j F Y" }}</p>
 
+  <h3>{% frontendadmin_change object 'Edit this entry' %}</h3>
+
   <div class="body">
     {{ object.body|safe }}
   </div>
+
+{% display_comment_toplevel_for object %}
 
   {% tags_for_object object as tag_list %}
   {% if tag_list %}
@@ -29,4 +33,8 @@
   {% endif %}
 
 
+{% endblock %}
+
+{% block endbody %}
+<div id="disqus_thread"></div><script type="text/javascript" src="http://disqus.com/forums/effervescentcollective/embed.js"></script><noscript><a href="http://disqus.com/forums/effervescentcollective/?url=ref">View the discussion thread.</a></noscript><a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 {% endblock %}

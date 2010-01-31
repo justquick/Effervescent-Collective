@@ -8,6 +8,10 @@
 -e git+http://github.com/zerok/django-flatblocks.git#egg=flatblocks
 -e git+http://github.com/justquick/django-native-tags.git#egg=native_tags
 -e git+http://opensource.washingtontimes.com/git/public/django-staff.git/#egg=staff
+-e svn+http://django-mptt.googlecode.com/svn/trunk/#egg=mptt
+-e git+http://github.com/justquick/django-mptt-comments.git#egg=mptt_comments
+-e svn+http://django-template-utils.googlecode.com/svn/trunk/#egg=template_utils
+-e git+http://github.com/justquick/django-frontendadmin.git#egg=frontendadmin
 
 simplejson==2.0.9
 python-memcached==1.44
