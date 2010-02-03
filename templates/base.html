@@ -32,7 +32,7 @@
           {% if request.user.is_authenticated %}
           {% get_home_flatblock as home %}
             <h3>{% frontendadmin_add flatpages 'Create new page' %}{% frontendadmin_change home 'Edit homepage' %}</h3>
-          {% else %}WTF
+          {% else %}
           {% endif %}
           
           {% flatblock "home" %}
