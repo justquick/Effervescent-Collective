@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+<title>{{ title }}</title>
+<description>{{ description }}</description>
+<link>{% url blog_feed %}</link>
+{% for item in items %}
+<item>
+<title>{{ item.title }}</title>
+<description>{{ item.body|escape }}</description>
+<link>{{ item.get_absolute_url }}</link>
+<guid isPermaLink="false">{{ item.pk }}</guid>
+<pubDate>{{ item.publish|date }}</pubDate>
+</item>
+{% endfor %}
+</channel>
+</rss>

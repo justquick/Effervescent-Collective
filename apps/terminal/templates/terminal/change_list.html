@@ -1,0 +1,23 @@
+{% extends 'admin/change_list.html' %}
+
+{% block extrahead %}{{ block.super }}
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.terminal.js"></script>
+</script>
+{% endblock %}
+
+{% block result_list %}
+<fieldset class="module aligned" id="terminal_banner">
+    <h2>Terminal</h2>
+    <div class="form-row" id="categories">
+        <div id="terminal_container"></div>
+    </div>
+</fieldset>
+<script type="text/javascript">
+$('#terminal_container').height(500);
+$('#terminal_container').terminal('{% url terminal.views.terminal %}', {custom_prompt : "$ "});
+</script>
+{% endblock %}
+
+{% block object-tools %}{% endblock %}
+{% block pagination %}{% endblock %}
