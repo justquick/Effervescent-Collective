@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
-
+{% load frontendadmin_tags %}
 {% block content_title %}{{ object }}{% endblock %}
 {% block title %}{{ object }}{% endblock %}
 
 {% block content %}
+<h3>{% frontendadmin_change object 'Edit this member' %}</h3>
 {{ object.bio|safe }}
 {% endblock %}

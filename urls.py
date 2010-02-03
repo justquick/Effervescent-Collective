@@ -5,11 +5,30 @@ from django.contrib import admin
 admin.autodiscover()
 
 from django.contrib.sitemaps import FlatPageSitemap, GenericSitemap
+from django.contrib.flatpages.models import FlatPage
 from basic.blog.models import Post
 from staff.models import StaffMember
+from django.contrib.syndication.feeds import Feed
+
+class LatestEntriesFeed(Feed):
+    title = "Chicagocrime.org site news"
+    link = "/blog/feed/"
+    description = "Updates on changes and additions to chicagocrime.org."
+
+    def items(self):
+        return Post.objects.published.order_by('-publish')[:10]
+
+    def item_title(self, item):
+        return item.title
+
+    def item_description(self, item):
+        return item.body
+    
+    def item_pubdate(self, obj):
+        return obj.publish
 
 sitemaps = {
-    'Flat Pages': FlatPageSitemap,
+    'Pages': FlatPageSitemap,
     'Blog Entries': GenericSitemap({
         'queryset': Post.objects.published(),
         'date_field': 'publish',
@@ -17,19 +36,27 @@ sitemaps = {
     'Members': GenericSitemap({'queryset':StaffMember.objects.all()})
 }
 
+
 urlpatterns = patterns('',
     (r'^cache/', include('django_memcached.urls')),
     (r'^admin/', include(admin.site.urls)),
     (r'^api/', include('api.urls')),
     (r'^frontendadmin/', include('frontendadmin.urls')),
     (r'^blog/', include('basic.blog.urls')),
+    url(r'^terminal/', 'terminal.views.terminal', name='terminal'),
     (r'^comments/', include('mptt_comments.urls')),
     (r'^bio/', include('staff.urls')),
     (r'^contact/', include('contact_form.urls')),
+    url(r'^feeds/blog/$', 'django_ext.views.feed', {
+        'items': Post.objects.published().order_by('-publish')[:10],
+        'title': 'Recent blog entries',
+    }, name='blog_feed'),
     (r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
     (r'^sitemap/$', 'django_ext.views.sitemap', {'sitemaps': sitemaps}),
+    (r'^search/$', 'django.views.generic.simple.direct_to_template', {'template':'search.html'}),
     (r'^$', 'django.views.generic.simple.direct_to_template', {'template':'base.html', 'extra_context': {
-        'object_list': lambda: Post.objects.published().order_by('-publish')[:5]
+        'object_list': lambda: Post.objects.published().order_by('-publish')[:5],
+        'flatpages': lambda: FlatPage.objects.all()[:1]
     }}),
 )
 

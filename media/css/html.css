@@ -28,7 +28,7 @@ form{ padding:0;  margin:0}
 label{ float:left;  width:25%;  vertical-align:top}
 input, 
 textarea, 
-select{ padding:1px;  font:400 1em verdana,sans-serif;  color:#999;  background:#EEE;  border:1px solid #CCC}
+select{ padding:1px;  font:400 1em verdana,sans-serif;  color:#000000;  background:#EEE;  border:1px solid #CCC}
 input:focus, 
 input:hover, 
 textarea:focus, 

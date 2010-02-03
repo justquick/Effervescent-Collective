@@ -1,4 +1,4 @@
--e svn+svn+http://code.djangoproject.com/svn/django/tags/releases/1.1.1/#egg=django
+-e svn+http://code.djangoproject.com/svn/django/tags/releases/1.1.1/#egg=django
 -e svn+http://svn.aeracode.org/svn/south/tags/0.5#egg=south
 -e git+http://github.com/nathanborror/django-basic-apps.git#egg=basic
 -e git+http://github.com/justquick/django-tinymce.git#egg=tinymce
@@ -12,6 +12,7 @@
 -e git+http://github.com/justquick/django-mptt-comments.git#egg=mptt_comments
 -e svn+http://django-template-utils.googlecode.com/svn/trunk/#egg=template_utils
 -e git+http://github.com/justquick/django-frontendadmin.git#egg=frontendadmin
+-e git+http://opensource.washingtontimes.com/git/public/django-categories.git/#egg=categories
 
 simplejson==2.0.9
 python-memcached==1.44

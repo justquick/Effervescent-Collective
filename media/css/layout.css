@@ -7,11 +7,11 @@
 #header ul li a{ float:left;  padding:0 1em;  font:400 1.1em arial,sans-serif;  letter-spacing:0.1em;  line-height:0.8em !important;  line-height:1em;  color:#ccc;  border-right:1px solid #4D5760}
 #header ul li a.last{ padding-right:0;  border-right:0}
 #header ul li a:hover{ color:#F26A92}
-#headerImg{  margin:0 auto;   height:250px;   background:url(../images/bg/header_image2.jpg) no-repeat top left}
+#headerImg{  margin:0 auto;   height:250px;  }
 #menu{  margin:0 auto}
 #menu ul{  width:100%;   float:left;   margin:0;   padding:0;   text-align:left;   background:#000 url(../images/bg/menu.gif) repeat-x top left}
 #menu ul li{ display:inline;  margin:0;  padding:0;  list-style:none}
-#menu ul li a{ float:left;  width:25%;  height:4.5em;  font:400 1.2em arial,sans-serif;  letter-spacing:0.1em;  color:#fff;  border-top:7px solid #000;  border-bottom:15px solid #FFF}
+#menu ul li a{ float:left;  width:20%;  height:4.5em;  font:400 1.2em arial,sans-serif;  letter-spacing:0.1em;  color:#fff;  border-top:7px solid #000;  border-bottom:15px solid #FFF}
 #menu ul li a span{ display:block;  padding:2px 7px}
 #menu ul li a span.desc{ font-size:0.8em;  color:#8C8D94}
 #menu ul li a:hover, 
@@ -79,6 +79,7 @@ ul.submenu2 a:hover{  color:#888;   background:#B3C6C4 url(../images/bg/submenu2
 .paddingRight{ padding-right:5px}
 .floatLeft{ float:left}
 .floatRight{ float:right}
+.floatRight ul{ padding-left: 20px}
 .alignLeft{ text-align:left}
 .alignRight{ text-align:right}
 .alignTop{ vertical-align:top}
@@ -87,3 +88,5 @@ ul.submenu2 a:hover{  color:#888;   background:#B3C6C4 url(../images/bg/submenu2
 .lightBlueBg{ background-color:#E9EAEB}
 .dark{ color:#353E47}
 .datetime{margin-left: 200px;}
+.frontendadmin_add{background-color: yellow;}
+.frontendadmin_edit{background-color: yellow;}

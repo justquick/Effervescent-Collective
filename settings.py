@@ -124,6 +124,9 @@ INSTALLED_APPS = (
     'mptt',
     'mptt_comments',
     'frontendadmin',
+    'categories',
+    'requirements',
+    'terminal',
     
     'tinymce',
     'tagging',
@@ -150,25 +153,40 @@ TINYMCE_DEFAULT_CONFIG = {
     'width': "97%",
 }
 
-def get_section_slug(context):
+def get_flatblock(context, **lookup):
     from flatblocks.models import FlatBlock
-    section = context['request'].path.split('/')[1]
     try:
-        FlatBlock.objects.get(slug=section)
-        return section
+        return FlatBlock.objects.get(**lookup)
     except FlatBlock.DoesNotExist:
         return
-get_section_slug.takes_context = 1
+get_flatblock.takes_context = True
+
+def get_home_flatblock(context):
+    return get_flatblock(context, slug='home')
+get_home_flatblock.takes_context = True
+
+def get_section_flatblock(context):
+    return get_flatblock(context, slug=context['request'].path.split('/')[1])
+get_section_flatblock.takes_context = True
+
+def get_section_slug(context):
+    if get_section_flatblock(context):
+        return context['request'].path.split('/')[1]
+get_section_slug.takes_context = True
 
 NATIVE_LIBRARY = {
     'function':{
         'get_section_slug' : get_section_slug,
+        'get_section_flatblock': get_section_flatblock,
+        'get_home_flatblock': get_home_flatblock,
+        'get_flatblock': get_flatblock
     }
 }
 
 FRONTEND_FORMS = {
     'blog.post': 'django_ext.forms.PostForm',
     'flatpages.flatpage': 'django_ext.forms.FlatPageForm',
+    'flatblocks.flatblock': 'django_ext.forms.FlatBlockForm',
 }
 
 #EMAIL_HOST = 'smtp.gmail.com'

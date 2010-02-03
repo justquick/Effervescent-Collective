@@ -1,13 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-{% load native flatblock_tags %}
+{% load native flatblock_tags frontendadmin_tags %}
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <title>EffervescentCollective | {% block title %}Welcome{% endblock %}</title>
     <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
-    <meta name="description" content="Site Description Here" />
-    <meta name="keywords" content="keywords, here" />
+    <meta name="description" content="The Effervescent Collective strives to create and cultivate dances that are curious, clever, and impactful. They look for powerful, alternate ways to understand everyday rituals and popular culture." />
+    <meta name="keywords" content="dance, movement, performances" />
     <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/layout.css"/>
     <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/html.css"/>
+    <script src="{{ MEDIA_URL }}js/jquery-1.3.2.js" type="text/javascript"></script>
+    <script src="{{ MEDIA_URL }}js/jquery.cycle.js" type="text/javascript"></script>
     {% block extrahead %}{% endblock %}
   </head>
   <body>
@@ -16,7 +18,10 @@
       <a href="/"><img border="0" src="{{ MEDIA_URL }}images/logo.jpg" alt="Effervescent Collective"/></a>
       {% flatblock "top-menu" %}
     </div>
-    <div id="headerImg" class="width"></div>
+    <div id="headerImg" class="width">
+      <img src="{{ MEDIA_URL }}images/bg/header_image2.jpg"/>
+      <img src="{{ MEDIA_URL }}images/bg/header_image.jpg"/>
+    </div>
     <div id="menu" class="width">
       {% flatblock "sub-menu" %}
     </div>
@@ -25,7 +30,13 @@
         <div class="floatLeft width73">
           <h1><span class="dark">{% block content_title %}home{% endblock %}</span></h1>
           {% block content %}
-            {% flatblock "home" %}
+          {% if request.user.is_authenticated %}
+          {% get_home_flatblock as home %}
+            <h3>{% frontendadmin_add flatpages 'Create new page' %}{% frontendadmin_change home 'Edit homepage' %}</h3>
+          {% else %}WTF
+          {% endif %}
+          
+          {% flatblock "home" %}
             <h2>Articles</h2>
             {% for post in object_list %}
               <div class="post">
@@ -44,7 +55,9 @@
         </div>
         <div class="floatRight width25 lightBlueBg horzPad">
           {% get_section_slug as section_slug %}
+          {% get_section_flatblock as fb %}
           {% if section_slug %}
+            <h3>{% frontendadmin_change fb 'Edit menu' %}</h3>
             {% flatblock section_slug %}
           {% endif %}
           <p><a href="https://www.fracturedatlas.org/donate/3033" target="_blank"><img src="http://www.fracturedatlas.org/site/images/contribute/donate_button2.gif" border="0" alt="Donate now!" width="120" height="40" /></a></p>
@@ -60,13 +73,19 @@
       </div>
     </div>
 <script type="text/javascript">
+$(document).ready(function(){
+        $('#headerImg').cycle({fx:'fade',delay: 5000,speed: 5000,random: 1});
+});
+
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
 try {
-var pageTracker = _gat._getTracker("UA-2806385-10");
+var pageTracker = _gat._getTracker("UA-12805698-1");
 pageTracker._trackPageview();
-} catch(err) {}</script>    
+} catch(err) {}
+
+</script>    
   </body>
 </html>
