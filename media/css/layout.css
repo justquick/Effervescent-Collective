@@ -1,6 +1,6 @@
 #content{ position:relative;  height:auto !important;  height:100%;  min-height:100%}
 #topbar{  float:left;   width:100%;   padding:0.6em 0;   font-size:0.9em;   text-transform:uppercase;   color:#CFD9DB;   background:#FFF url(../images/bg/topbar.gif) repeat-x bottom left}
-#header{clear:both; position:relative; height:5em; margin:0 auto; background:#48525B url(../images/bg/header.gif) repeat-x bottom left; border-bottom:2px solid #48525B; background-color:#48525B}
+#header{clear:both; position:relative; height:5em; margin:0 auto; background:#48525B url(../images/bg/header.gif) repeat-x bottom left; background-color:#48525B}
 #header img{ position:absolute;  top:10%;  left:10px}
 #header ul{ margin:3.5em 1em 0 0 !important;  margin:3.5em 0.5em 0 0;  padding:0;  float:right}
 #header ul li{ display:inline;  list-style:none}
@@ -8,6 +8,7 @@
 #header ul li a.last{ padding-right:0;  border-right:0}
 #header ul li a:hover{ color:#F26A92}
 #headerImg{  margin:0 auto;   height:250px;  }
+#banner-menu{float: right; margin-bottom: 0px; font-size: 3em; margin: 0 18%; }
 #menu{  margin:0 auto}
 #menu ul{  width:100%;   float:left;   margin:0;   padding:0;   text-align:left;   background:#000 url(../images/bg/menu.gif) repeat-x top left}
 #menu ul li{ display:inline;  margin:0;  padding:0;  list-style:none}
@@ -28,6 +29,7 @@
 #menu ul li a:hover span.dollar{  background:url(../images/icons/dollar_on.gif) no-repeat 4px 50%}
 #page{ clear:both;  float:left;  width:100%;  margin-bottom:6em;  text-align:left}
 #columns{ margin:0 auto}
+.hidden{display: none;height:250px;}
 .width{ width:776px}
 .widthPad{ width:746px}
 .width25{ width:24%}

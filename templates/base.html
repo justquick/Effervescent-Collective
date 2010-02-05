@@ -18,7 +18,9 @@
       <a href="/"><img border="0" src="{{ MEDIA_URL }}images/logo.jpg" alt="Effervescent Collective"/></a>
       {% flatblock "top-menu" %}
     </div>
-    <div id="headerImg" class="width">
+    <div id="banner-menu"><h3><a id="prev" href="#">&laquo;</a><a id="next" href="#">&raquo;</a></h3></div>
+    
+    <div id="headerImg" class="width hidden">
       <img height="250px" width="776px" src="http://lh4.ggpht.com/_f3gaky_MG94/S2yP4m-9sTI/AAAAAAAAAg8/xYKwfdBtmMg/groupelineupbanner.jpg"/>
       <img height="250px" width="776px" src="http://lh5.ggpht.com/_f3gaky_MG94/S2yP4xH1iQI/AAAAAAAAAhA/xXBuADMC7Cc/aroma%20nonsense%20banner.jpg"/>
       <img height="250px" width="776px" src="http://lh3.ggpht.com/_f3gaky_MG94/S2yP5LWyjHI/AAAAAAAAAhE/w6iTtDmAe9Y/DSC_0535banner.jpg"/>
@@ -88,17 +90,19 @@
       </div>
     </div>
 <script type="text/javascript">
-$(document).ready(function(){
-        $('#headerImg').cycle({fx:'fade',delay: 5000,speed: 5000,random: 1});
-});
+
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-12806219-1");
-pageTracker._trackPageview();
-} catch(err) {}
+$(document).ready(function(){
+      try {
+      var pageTracker = _gat._getTracker("UA-12806219-1");
+      pageTracker._trackPageview();
+      } catch(err) {}
+      
+      $('#headerImg').cycle({fx:'fade',delay: 5000,speed: 5000,random: 1,    next:   '#next', prev:   '#prev'}).removeClass('hidden');
+});
 </script>    
   </body>
 </html>
