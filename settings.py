@@ -174,12 +174,17 @@ def get_section_slug(context):
         return context['request'].path.split('/')[1]
 get_section_slug.takes_context = True
 
+def get_staff():
+    from staff.models import StaffMember
+    return StaffMember.objects.all()
+
 NATIVE_LIBRARY = {
     'function':{
         'get_section_slug' : get_section_slug,
         'get_section_flatblock': get_section_flatblock,
         'get_home_flatblock': get_home_flatblock,
-        'get_flatblock': get_flatblock
+        'get_flatblock': get_flatblock,
+        'get_staff': get_staff
     }
 }
 
