@@ -10,7 +10,9 @@ ADMINS = (
     ('Webmaster', 'justquick@gmail.com'),
 )
 
-MANAGERS = ADMINS
+MANAGERS = (
+    ('Lily', 'effervescent.collective@gmail.com'),
+)
 
 DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
 DATABASE_NAME = os.path.join(PROJECT_ROOT, 'dev.db')             # Or path to database file if using sqlite3.
