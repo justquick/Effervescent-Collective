@@ -177,6 +177,32 @@ get_section_slug.takes_context = True
 def get_staff():
     from staff.models import StaffMember
     return StaffMember.objects.all()
+    
+def get_images():
+    from random import choice
+    i = []
+    I=('http://lh4.ggpht.com/_f3gaky_MG94/S2yP4m-9sTI/AAAAAAAAAg8/xYKwfdBtmMg/groupelineupbanner.jpg',
+      'http://lh5.ggpht.com/_f3gaky_MG94/S2yP4xH1iQI/AAAAAAAAAhA/xXBuADMC7Cc/aroma%20nonsense%20banner.jpg',
+      'http://lh3.ggpht.com/_f3gaky_MG94/S2yP5LWyjHI/AAAAAAAAAhE/w6iTtDmAe9Y/DSC_0535banner.jpg',
+      'http://lh5.ggpht.com/_f3gaky_MG94/S2yP5gIeA_I/AAAAAAAAAhM/wIjpZ0aYamQ/DSC_0593banner.jpg',
+      'http://lh5.ggpht.com/_f3gaky_MG94/S2yP5xglQWI/AAAAAAAAAhQ/uYAK8PR3j8s/DSC_5152%20banner.jpg',
+      'http://lh4.ggpht.com/_f3gaky_MG94/S2yP6Bl30SI/AAAAAAAAAhU/lsv90T3nBi8/DSC_0368%20banner.jpg',
+      'http://lh5.ggpht.com/_f3gaky_MG94/S2yP6bXvu0I/AAAAAAAAAhc/Ie3o26eN3jU/_MG_3354banner.jpg',
+      'http://lh4.ggpht.com/_f3gaky_MG94/S2yP6zBsCcI/AAAAAAAAAhg/jlzxQXr2D-Q/DSC_0917banner.jpg',
+      'http://lh4.ggpht.com/_f3gaky_MG94/S2yP7U7Gb7I/AAAAAAAAAhk/sG0HGEngrf8/facesbanner.jpg',
+      'http://lh3.ggpht.com/_f3gaky_MG94/S2yP7k1EwLI/AAAAAAAAAho/7BeBFVMj65U/DSC_0940banner.jpg',
+      'http://lh5.ggpht.com/_f3gaky_MG94/S2yP77XB0uI/AAAAAAAAAhs/Hs-Udet7W2E/athenatuemedit.jpg',
+      'http://lh6.ggpht.com/_f3gaky_MG94/S2yP8KKxlNI/AAAAAAAAAhw/Ch2hBsVY-Uk/DSC_0585banner.jpg',
+      'http://lh4.ggpht.com/_f3gaky_MG94/S2yP8QciKCI/AAAAAAAAAh0/zLQEPrBRiWo/DSC_5306banner.jpg',
+      'http://lh5.ggpht.com/_f3gaky_MG94/S2yP8rkaIYI/AAAAAAAAAh4/-92Fqnp-kJw/_MG_3398editbanner.jpg',
+      'http://lh4.ggpht.com/_f3gaky_MG94/S2yP8q5NYhI/AAAAAAAAAh8/vIw_wwv94hA/lynnelilyhandtossbanner.jpg',
+      'http://lh5.ggpht.com/_f3gaky_MG94/S2yP9BBcduI/AAAAAAAAAiA/WOKLadndotw/DSC_0531banner%20%281%29.jpg',
+      'http://lh6.ggpht.com/_f3gaky_MG94/S2yRpnSTvlI/AAAAAAAAAjc/aJMDsXl1uQM/header_image.jpg',)
+    while len(i)<7:
+        _ = choice(I)
+        if not _ in i:
+            i.append(_)
+    return i
 
 NATIVE_LIBRARY = {
     'function':{
@@ -184,7 +210,8 @@ NATIVE_LIBRARY = {
         'get_section_flatblock': get_section_flatblock,
         'get_home_flatblock': get_home_flatblock,
         'get_flatblock': get_flatblock,
-        'get_staff': get_staff
+        'get_staff': get_staff,
+        'get_images': get_images
     }
 }
 
@@ -193,11 +220,6 @@ FRONTEND_FORMS = {
     'flatpages.flatpage': 'django_ext.forms.FlatPageForm',
     'flatblocks.flatblock': 'django_ext.forms.FlatBlockForm',
 }
-
-#EMAIL_HOST = 'smtp.gmail.com'
-#EMAIL_HOST_USER = 'emailname@gmail.com'
-#EMAIL_HOST_PASSWORD = 'yourpassword'
-#EMAIL_USE_TLS = True
 
 
 SOUTH_AUTO_FREEZE_APP = True
