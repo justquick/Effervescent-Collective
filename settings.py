@@ -3,11 +3,11 @@ import sys
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-DEBUG = True
+DEBUG = 0
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('Webmaster', 'webmaster@washingtontimes.com'),
+    ('Webmaster', 'justquick@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -166,12 +166,18 @@ def get_home_flatblock(context):
 get_home_flatblock.takes_context = True
 
 def get_section_flatblock(context):
-    return get_flatblock(context, slug=context['request'].path.split('/')[1])
+    try:
+        return get_flatblock(context, slug=context['request'].path.split('/')[1])
+    except:
+        return
 get_section_flatblock.takes_context = True
 
 def get_section_slug(context):
     if get_section_flatblock(context):
-        return context['request'].path.split('/')[1]
+        try:
+            return context['request'].path.split('/')[1]
+        except:
+            return
 get_section_slug.takes_context = True
 
 def get_staff():
