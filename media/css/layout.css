@@ -2,7 +2,7 @@
 #topbar{  float:left;   width:100%;   padding:0.6em 0;   font-size:0.9em;   text-transform:uppercase;   color:#CFD9DB;   background:#FFF url(../images/bg/topbar.gif) repeat-x bottom left}
 #header{clear:both; position:relative; height:5em; margin:0 auto; background:#48525B url(../images/bg/header.gif) repeat-x bottom left; background-color:#48525B}
 #header img{ position:absolute;  top:10%;  left:10px}
-#header ul{ margin:3.5em 1em 0 0 !important;  margin:3.5em 0.5em 0 0;  padding:0;  float:right}
+#header ul{ margin:3.5em 1em 0 3em !important;  margin:3.5em 0.5em 0 0;  padding:0;  float:right}
 #header ul li{ display:inline;  list-style:none}
 #header ul li a{ float:left;  padding:0 1em;  font:400 1.1em arial,sans-serif;  letter-spacing:0.1em;  line-height:0.8em !important;  line-height:1em;  color:#ccc;  border-right:1px solid #4D5760}
 #header ul li a.last{ padding-right:0;  border-right:0}
@@ -70,10 +70,6 @@ ul.submenu1 li,
 ul.submenu2 li{ margin:0;  padding:0;  list-style:none;  list-style-image:url(foo.gif)}
 ul.submenu1 li a, 
 ul.submenu2 li a{ display:block;  height:auto !important;   height:1%;    padding:1px 5px 1px 20px}
-ul.submenu1 li a{  background:url(../images/bg/submenu1.gif) no-repeat 5px 50%}
-ul.submenu1 a:hover{  color:#888;   background:#B3C6C4 url(../images/bg/submenu1.gif) no-repeat 5px 50%}
-ul.submenu2 li a{  color:#426F85;   background:url(../images/bg/submenu2.gif) no-repeat 3px 50%}
-ul.submenu2 a:hover{  color:#888;   background:#B3C6C4 url(../images/bg/submenu2.gif) no-repeat 3px 50%}
 .block{ display:block}
 .clear{ clear:both}
 .marginRight{ margin-right:15px}

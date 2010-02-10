@@ -15,29 +15,14 @@
   <body>
     <div id="content">
     <div id="header" class="width">
-      <a href="/"><img border="0" src="{{ MEDIA_URL }}images/logo.jpg" alt="Effervescent Collective"/></a>
+      <a href="/"><img style="padding-bottom: 35px;" border="0" src="{{ MEDIA_URL }}images/logo.jpg" alt="Effervescent Collective"/></a>
       {% flatblock "top-menu" %}
     </div>
-    <div id="banner-menu"><h3><a id="prev" href="#">&laquo;</a><a id="next" href="#">&raquo;</a></h3></div>
-    
     <div id="headerImg" class="width hidden">
-      <img height="250px" width="776px" src="http://lh4.ggpht.com/_f3gaky_MG94/S2yP4m-9sTI/AAAAAAAAAg8/xYKwfdBtmMg/groupelineupbanner.jpg"/>
-      <img height="250px" width="776px" src="http://lh5.ggpht.com/_f3gaky_MG94/S2yP4xH1iQI/AAAAAAAAAhA/xXBuADMC7Cc/aroma%20nonsense%20banner.jpg"/>
-      <img height="250px" width="776px" src="http://lh3.ggpht.com/_f3gaky_MG94/S2yP5LWyjHI/AAAAAAAAAhE/w6iTtDmAe9Y/DSC_0535banner.jpg"/>
-      <img height="250px" width="776px" src="http://lh5.ggpht.com/_f3gaky_MG94/S2yP5gIeA_I/AAAAAAAAAhM/wIjpZ0aYamQ/DSC_0593banner.jpg"/>
-      <img height="250px" width="776px" src="http://lh5.ggpht.com/_f3gaky_MG94/S2yP5xglQWI/AAAAAAAAAhQ/uYAK8PR3j8s/DSC_5152%20banner.jpg"/>
-      <img height="250px" width="776px" src="http://lh4.ggpht.com/_f3gaky_MG94/S2yP6Bl30SI/AAAAAAAAAhU/lsv90T3nBi8/DSC_0368%20banner.jpg"/>
-      <img height="250px" width="776px" src="http://lh5.ggpht.com/_f3gaky_MG94/S2yP6bXvu0I/AAAAAAAAAhc/Ie3o26eN3jU/_MG_3354banner.jpg"/>
-      <img height="250px" width="776px" src="http://lh4.ggpht.com/_f3gaky_MG94/S2yP6zBsCcI/AAAAAAAAAhg/jlzxQXr2D-Q/DSC_0917banner.jpg"/>
-      <img height="250px" width="776px" src="http://lh4.ggpht.com/_f3gaky_MG94/S2yP7U7Gb7I/AAAAAAAAAhk/sG0HGEngrf8/facesbanner.jpg"/>
-      <img height="250px" width="776px" src="http://lh3.ggpht.com/_f3gaky_MG94/S2yP7k1EwLI/AAAAAAAAAho/7BeBFVMj65U/DSC_0940banner.jpg"/>
-      <img height="250px" width="776px" src="http://lh5.ggpht.com/_f3gaky_MG94/S2yP77XB0uI/AAAAAAAAAhs/Hs-Udet7W2E/athenatuemedit.jpg"/>
-      <img height="250px" width="776px" src="http://lh6.ggpht.com/_f3gaky_MG94/S2yP8KKxlNI/AAAAAAAAAhw/Ch2hBsVY-Uk/DSC_0585banner.jpg"/>
-      <img height="250px" width="776px" src="http://lh4.ggpht.com/_f3gaky_MG94/S2yP8QciKCI/AAAAAAAAAh0/zLQEPrBRiWo/DSC_5306banner.jpg"/>
-      <img height="250px" width="776px" src="http://lh5.ggpht.com/_f3gaky_MG94/S2yP8rkaIYI/AAAAAAAAAh4/-92Fqnp-kJw/_MG_3398editbanner.jpg"/>
-      <img height="250px" width="776px" src="http://lh4.ggpht.com/_f3gaky_MG94/S2yP8q5NYhI/AAAAAAAAAh8/vIw_wwv94hA/lynnelilyhandtossbanner.jpg"/>
-      <img height="250px" width="776px" src="http://lh5.ggpht.com/_f3gaky_MG94/S2yP9BBcduI/AAAAAAAAAiA/WOKLadndotw/DSC_0531banner%20%281%29.jpg"/>
-      <img height="250px" width="776px" src="http://lh6.ggpht.com/_f3gaky_MG94/S2yRpnSTvlI/AAAAAAAAAjc/aJMDsXl1uQM/header_image.jpg"/>
+      {% get_images as images %}
+      {% for image in images %}
+      <img height="250px" width="776px" src="{{ image }}"/>
+      {% endfor %}
     </div>
     <div id="menu" class="width">
       {% flatblock "sub-menu" %}
@@ -84,7 +69,7 @@
     </div>
     <div id="footer">
       <div id="bg" class="width">
-        <img src="{{ MEDIA_URL }}images/logo.jpg" alt="Effervescent Collective"/>
+        <img  style="padding: 10px;" src="{{ MEDIA_URL }}images/logo.jpg" alt="Effervescent Collective"/>
         <a href="http://creativecommons.org"><img style="border-width: 0pt;" src="http://i.creativecommons.org/l/by-nc-sa/3.0/us/88x31.png" alt="Creative Commons License"/></a><br/>
         Licensed by Lily Susskind under a<br/> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License</a>.
       </div>
@@ -101,7 +86,7 @@ $(document).ready(function(){
       pageTracker._trackPageview();
       } catch(err) {}
       
-      $('#headerImg').cycle({fx:'fade',delay: 5000,speed: 5000,random: 1,    next:   '#next', prev:   '#prev'}).removeClass('hidden');
+      $('#headerImg').cycle({fx:'fade',delay: 5000,speed: 5000,random: 1}).removeClass('hidden');
 });
 </script>    
   </body>
