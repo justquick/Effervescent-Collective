@@ -36,6 +36,11 @@ sitemaps = {
     'Members': GenericSitemap({'queryset':StaffMember.objects.all()})
 }
 
+from contact_form.forms import ContactForm
+from math_captcha.forms import MathCaptchaForm
+
+class CaptchaContactForm(ContactForm,MathCaptchaForm):
+    pass
 
 urlpatterns = patterns('',
     (r'^cache/', include('django_memcached.urls')),
@@ -46,7 +51,8 @@ urlpatterns = patterns('',
     url(r'^terminal/', 'terminal.views.terminal', name='terminal'),
     (r'^comments/', include('mptt_comments.urls')),
     (r'^bio/', include('staff.urls')),
-    (r'^contact/', include('contact_form.urls')),
+    url(r'^contact/$','contact_form.views.contact_form',{'form_class':CaptchaContactForm},name='contact_form'),
+    url(r'^contact/sent/$','django.views.generic.simple.direct_to_template',{ 'template': 'contact_form/contact_form_sent.html' },name='contact_form_sent'),    
     url(r'^feeds/blog/$', 'django_ext.views.feed', {
         'items': Post.objects.published().order_by('-publish')[:10],
         'title': 'Recent blog entries',

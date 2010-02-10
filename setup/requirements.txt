@@ -13,6 +13,7 @@
 -e svn+http://django-template-utils.googlecode.com/svn/trunk/#egg=template_utils
 -e git+http://github.com/justquick/django-frontendadmin.git#egg=frontendadmin
 -e git+http://opensource.washingtontimes.com/git/public/django-categories.git/#egg=categories
+-e git+http://github.com/justquick/django-math-captcha.git#egg=math_captcha
 
 simplejson==2.0.9
 python-memcached==1.44
