@@ -59,13 +59,13 @@
           {% get_section_slug as section_slug %}
           {% get_section_flatblock as fb %}
           {% if section_slug %}
-            {% if request.user.is_autenticated %}<h3>{% frontendadmin_change fb 'Edit menu' %}</h3>{% endif %}
+            <h3>{% frontendadmin_change fb 'Edit menu' %}</h3>
             {% flatblock section_slug %}
           {% endif %}
           
           {% flatblock "side-buttons" %}
           {% get_flatblock slug=side-buttons as side %}
-            {% if request.user.is_autenticated %}<h3>{% frontendadmin_change side 'Edit buttons' %}</h3>{% endif %}
+            <h3>{% frontendadmin_change side 'Edit buttons' %}</h3>
         </div>
       </div>
     </div>
