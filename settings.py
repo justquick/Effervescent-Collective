@@ -121,12 +121,11 @@ INSTALLED_APPS = (
     'native_tags',
     'staff',
     'template_utils',
-    'mptt',
-    'mptt_comments',
     'frontendadmin',
     'categories',
     'requirements',
     'terminal',
+    'disqus',
     
     'tinymce',
     'tagging',
@@ -233,6 +232,11 @@ SOUTH_AUTO_FREEZE_APP = True
 DJANGO_MEMCACHED_REQUIRE_STAFF = True
 
 CACHE_BACKEND = 'locmem:///'
+
+
+
+DISQUS_API_KEY = 'RdfJzDjsWza71kshQMJ8zhjYCoVto3BTROM5eJL87y3va3aMhfKNpQ3R9yLWalUq'
+DISQUS_WEBSITE_SHORTNAME = 'effervescentcollective'
 
 try:
     from local_settings import *

@@ -1,11 +1,11 @@
 {% extends "blog/base_blog.html" %}
 
-{% load i18n mptt_comments_tags frontendadmin_tags %}
+{% load i18n disqus_tags frontendadmin_tags %}
 
 {% block title %}{{ object.title }}{% endblock %}
 {% block body_class %}{{ block.super }} post_detail{% endblock %}
 {% block body_id %}post_{{ object.id }}{% endblock %}
-{% block extrahead %}{% mptt_comments_media %}{% endblock %}
+{% block extrahead %}{% disqus_dev %}{% endblock %}
 
 {% block content_title %}{{ object.title }}{% endblock %}
 
@@ -21,7 +21,6 @@
     {{ object.body|safe }}
   </div>
 
-{% display_comment_toplevel_for object %}
 
   {% tags_for_object object as tag_list %}
   {% if tag_list %}
@@ -32,6 +31,7 @@
   </p>
   {% endif %}
 
+{% disqus_show_comments %}
 
 {% endblock %}
 
